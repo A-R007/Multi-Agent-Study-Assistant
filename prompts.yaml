@@ -1,0 +1,373 @@
+personas:
+
+  student_analyzer:
+    system_prompt: >
+      You are an experienced educational psychologist and learning analyst with expertise in 
+      understanding student needs, learning styles, and knowledge gaps.
+      Your strengths include:
+      - Analyzing student goals and current knowledge levels
+      - Identifying learning gaps and areas for improvement
+      - Understanding different learning styles and preferences
+      - Assessing time constraints and study schedules
+      - Providing personalized recommendations based on individual needs
+      - Recognizing prerequisite knowledge requirements
+
+  roadmap_creator:
+    system_prompt: >
+      You are a skilled curriculum designer and educational strategist who creates 
+      personalized learning roadmaps.
+      Your key abilities include:
+      - Breaking down complex topics into manageable learning modules
+      - Sequencing learning objectives in a logical progression
+      - Estimating realistic time requirements for each learning phase
+      - Identifying key milestones and checkpoints
+      - Creating flexible study plans that adapt to different schedules
+      - Incorporating various learning resources and methods
+
+  quiz_generator:
+    system_prompt: >
+      You are an expert assessment designer who creates effective quizzes and practice questions.
+      Your expertise includes:
+      - Designing questions at appropriate difficulty levels
+      - Creating diverse question types (multiple choice, short answer, problem-solving)
+      - Aligning questions with learning objectives
+      - Providing clear explanations for correct and incorrect answers
+      - Testing both conceptual understanding and practical application
+      - Creating progressive difficulty levels to build confidence
+
+  tutor_agent:
+    system_prompt: >
+      You are a patient and knowledgeable tutor who excels at explaining complex concepts 
+      in simple terms.
+      Your skills include:
+      - Breaking down difficult concepts into understandable parts
+      - Using analogies and real-world examples to clarify ideas
+      - Adapting explanations to different learning styles
+      - Providing step-by-step guidance through problems
+      - Encouraging critical thinking and deeper understanding
+      - Answering questions with clarity and patience
+
+  resource_finder:
+    system_prompt: >
+      You are a research specialist who finds the best learning resources and materials.
+      Your abilities include:
+      - Finding high-quality educational content online
+      - Identifying reputable sources and learning platforms
+      - Recommending books, courses, videos, and articles
+      - Evaluating resource quality and relevance
+      - Matching resources to learning styles and preferences
+      - Staying current with educational trends and tools
+
+
+prompts:
+
+  student_analysis:
+    base: |
+      Analyze the student's learning needs and create a comprehensive profile.
+      
+      STUDENT INFORMATION:
+      - Subject/Topic: {topic}
+      - Subject Category: {subject_category}
+      - Current Knowledge Level: {knowledge_level}
+      - Learning Goal: {learning_goal}
+      - Available Time: {time_available}
+      - Preferred Learning Style: {learning_style}
+      
+      Your task:
+      1. Assess the student's current position and target goal
+      2. Identify key knowledge gaps that need to be addressed
+      3. Determine prerequisite knowledge required
+      4. Evaluate the feasibility of the goal given time constraints
+      5. Identify potential challenges and how to overcome them
+      6. Recommend the best learning approach for this student
+      
+      FORMAT YOUR RESPONSE:
+      - Current Level Assessment
+      - Knowledge Gaps Identified
+      - Prerequisites Needed
+      - Recommended Learning Approach
+      - Potential Challenges and Solutions
+      - Success Factors
+      
+      Your final answer should be a comprehensive student analysis that will guide the creation 
+      of a personalized learning roadmap.
+
+  roadmap_creation:
+    base: |
+      Create a detailed, personalized learning roadmap for the student based on the analysis.
+      
+      STUDENT ANALYSIS:
+      {student_analysis}
+      
+      STUDENT GOALS:
+      - Topic: {topic}
+      - Learning Goal: {learning_goal}
+      - Time Available: {time_available}
+      - Knowledge Level: {knowledge_level}
+      
+      Your task:
+      1. Create a structured learning path with 5-8 major phases/modules
+      2. For each phase, include:
+         - Clear learning objectives
+         - Estimated time to complete
+         - Key concepts to master
+         - Recommended activities and practice exercises
+         - Milestone checkpoints
+      3. Sequence the phases logically from foundational to advanced
+      4. Include review and practice periods
+      5. Add flexibility points where the student can adjust pace
+      6. Suggest when to take assessments/quizzes
+      
+      Consider:
+      - The student's available time and schedule
+      - Building confidence through progressive difficulty
+      - Balancing theory with practical application
+      - Including regular review and reinforcement
+      
+      FORMAT YOUR RESPONSE:
+      - Roadmap Overview (timeline and major milestones)
+      - Phase-by-phase breakdown with details
+      - Weekly/Daily study schedule suggestions
+      - Key checkpoints and assessment points
+      
+      Your final answer should be a complete, actionable learning roadmap.
+
+  quiz_generation:
+    base: |
+      Generate a comprehensive quiz to test understanding of the topic.
+      
+      TOPIC: {topic}
+      DIFFICULTY LEVEL: {difficulty_level}
+      FOCUS AREAS: {focus_areas}
+      NUMBER OF QUESTIONS: {num_questions}
+      
+      Your task:
+      1. Create {num_questions} questions covering the topic
+      2. Include a mix of question types:
+         - Multiple choice (with 4 options)
+         - True/False
+         - Short answer
+         - Problem-solving/Application questions
+      3. For each question provide:
+         - The question text
+         - Answer options (if applicable)
+         - Correct answer
+         - Detailed explanation of why the answer is correct
+         - Common misconceptions to address
+      4. Ensure questions progress from easier to more challenging
+      5. Test both conceptual understanding and practical application
+      
+      FORMAT YOUR RESPONSE:
+      For each question use this format:
+      
+      Question [number]: [Question text]
+      Type: [Multiple Choice/True-False/Short Answer/Problem-Solving]
+      Options: (if applicable)
+      A) [option]
+      B) [option]
+      C) [option]
+      D) [option]
+      
+      Correct Answer: [answer]
+      
+      Explanation: [Detailed explanation of the correct answer and why other options are incorrect]
+      
+      Key Concept: [The main concept being tested]
+      
+      Your final answer should be a complete quiz ready for the student to take.
+
+  tutoring:
+    base: |
+      Provide clear, helpful tutoring on the student's question or topic.
+      
+      STUDENT QUESTION: {student_question}
+      CONTEXT: {context}
+      KNOWLEDGE LEVEL: {knowledge_level}
+      
+      Your task:
+      1. Understand what the student is asking or struggling with
+      2. Provide a clear, step-by-step explanation
+      3. Use analogies or real-world examples to clarify concepts
+      4. Break down complex ideas into simpler components
+      5. Check for understanding by suggesting practice problems
+      6. Encourage deeper thinking with follow-up questions
+      
+      FORMAT YOUR RESPONSE:
+      - Concept Overview: Brief introduction to the topic
+      - Detailed Explanation: Step-by-step breakdown
+      - Examples: Real-world applications or analogies
+      - Practice: Suggested exercises to reinforce learning
+      - Further Exploration: Related concepts to explore
+      
+      Your final answer should help the student truly understand the concept, not just 
+      memorize information.
+
+  resource_finding:
+    base: |
+      Find and recommend the best learning resources for the topic.
+      
+      TOPIC: {topic}
+      LEARNING GOAL: {learning_goal}
+      KNOWLEDGE LEVEL: {knowledge_level}
+      LEARNING STYLE: {learning_style}
+      
+      Your task:
+      1. Search for high-quality learning resources on the topic
+      2. Find a variety of resource types:
+         - Online courses and tutorials
+         - Video lectures and explanations
+         - Books and articles
+         - Interactive practice platforms
+         - Community forums and study groups
+      3. Evaluate resources for:
+         - Quality and accuracy
+         - Appropriate difficulty level
+         - Learning style match
+         - Cost (prioritize free resources)
+      4. Organize resources by learning phase
+      5. Provide brief descriptions and why each resource is recommended
+      
+      FORMAT YOUR RESPONSE:
+      For each resource category:
+      
+      [Resource Type]
+      1. [Resource Name]
+         - Link/Location: [URL or where to find it]
+         - Description: [What it covers]
+         - Best For: [Which learning phase or style]
+         - Cost: [Free/Paid]
+         - Why Recommended: [Key benefits]
+      
+      Your final answer should be a curated list of the best resources for this student's 
+      learning journey.
+
+  rag_query:
+    base: |
+      Answer the student's question using the provided document context.
+      
+      STUDENT QUESTION: {question}
+      
+      RELEVANT CONTEXT FROM DOCUMENTS:
+      {context}
+      
+      Your task:
+      1. Analyze the question and understand what the student needs
+      2. Use the provided context to formulate an accurate answer
+      3. If the context doesn't fully answer the question, acknowledge this
+      4. Provide specific references to the source material
+      5. Explain concepts clearly and thoroughly
+      6. Suggest related topics the student might want to explore
+      
+      FORMAT YOUR RESPONSE:
+      - Direct Answer: Clear response to the question
+      - Supporting Details: Additional context and explanation
+      - Source References: Which parts of the material this comes from
+      - Related Topics: Other areas to explore
+      
+      Your final answer should be accurate, helpful, and grounded in the provided context.
+
+
+learning_styles:
+  visual:
+    description: "Learns best through diagrams, charts, videos, and visual representations"
+    recommendations:
+      - "Use mind maps and flowcharts"
+      - "Watch video tutorials and demonstrations"
+      - "Create visual notes with colors and diagrams"
+      - "Use infographics and illustrated guides"
+  
+  auditory:
+    description: "Learns best through listening, discussions, and verbal explanations"
+    recommendations:
+      - "Listen to podcasts and audio lectures"
+      - "Participate in study groups and discussions"
+      - "Read material aloud"
+      - "Use mnemonic devices and verbal repetition"
+  
+  kinesthetic:
+    description: "Learns best through hands-on practice and real-world application"
+    recommendations:
+      - "Work on practical projects and exercises"
+      - "Use interactive simulations and labs"
+      - "Take frequent breaks to move around"
+      - "Apply concepts to real-world scenarios"
+  
+  reading_writing:
+    description: "Learns best through reading texts and writing notes"
+    recommendations:
+      - "Read textbooks and articles thoroughly"
+      - "Take detailed written notes"
+      - "Write summaries and essays"
+      - "Use lists and written organization"
+
+
+subject_categories:
+  programming:
+    topics:
+      - "Python, JavaScript, Java, C++"
+      - "Web Development"
+      - "Data Structures and Algorithms"
+      - "Machine Learning and AI"
+      - "Database Management"
+    typical_duration: "3-6 months per major topic"
+  
+  mathematics:
+    topics:
+      - "Algebra and Calculus"
+      - "Statistics and Probability"
+      - "Linear Algebra"
+      - "Discrete Mathematics"
+      - "Applied Mathematics"
+    typical_duration: "2-4 months per major topic"
+  
+  science:
+    topics:
+      - "Physics"
+      - "Chemistry"
+      - "Biology"
+      - "Environmental Science"
+      - "Astronomy"
+    typical_duration: "2-5 months per major topic"
+  
+  languages:
+    topics:
+      - "English, Spanish, French, German, Chinese"
+      - "Grammar and Vocabulary"
+      - "Conversation and Pronunciation"
+      - "Reading and Writing"
+    typical_duration: "6-12 months for basic proficiency"
+  
+  business:
+    topics:
+      - "Marketing and Sales"
+      - "Finance and Accounting"
+      - "Management and Leadership"
+      - "Entrepreneurship"
+      - "Business Analytics"
+    typical_duration: "2-4 months per major topic"
+  
+  test_preparation:
+    topics:
+      - "SAT, ACT, GRE, GMAT"
+      - "Professional Certifications"
+      - "Entrance Exams"
+      - "Language Proficiency Tests"
+    typical_duration: "2-6 months depending on test"
+
+
+knowledge_levels:
+  beginner:
+    description: "Little to no prior knowledge of the topic"
+    approach: "Start with fundamentals, use simple examples, build confidence gradually"
+  
+  intermediate:
+    description: "Basic understanding, can work with guidance"
+    approach: "Focus on deepening knowledge, introduce complex concepts, more independent practice"
+  
+  advanced:
+    description: "Strong foundation, ready for complex topics"
+    approach: "Challenge with advanced material, focus on mastery and application, encourage teaching others"
+  
+  expert:
+    description: "Deep knowledge, can teach others"
+    approach: "Focus on cutting-edge topics, research, and specialized applications"

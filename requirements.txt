@@ -1,0 +1,36 @@
+# Core AI Framework
+phidata>=2.7.10
+
+# LLM Providers
+groq==0.32.0
+openai>=2.3.0
+
+# LangChain Ecosystem
+langchain==0.3.27
+langchain-community==0.3.30
+langchain-core==0.3.78
+langchain-groq==0.3.8
+langchain-openai>=0.3.35
+langchain-chroma>=0.2.6
+langchain-text-splitters==0.3.11
+
+# Vector Database
+chromadb>=1.1.1
+
+# Web Search Tool
+duckduckgo-search>=8.1.1
+
+# Data Validation
+pydantic==2.11.9
+pydantic_core==2.33.2
+pydantic-settings==2.11.0
+
+# Document Processing
+pypdf==6.1.1
+
+# Configuration
+python-dotenv==1.1.1
+PyYAML>=6.0
+
+# Web Interface
+streamlit==1.50.0
