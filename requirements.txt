@@ -18,7 +18,7 @@ langchain-text-splitters==0.3.11
 chromadb>=1.1.1
 
 # Web Search Tool
-duckduckgo-search>=8.1.1
+ddgs
 
 # Data Validation
 pydantic==2.11.9
