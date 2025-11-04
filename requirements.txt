@@ -34,3 +34,4 @@ PyYAML>=6.0
 
 # Web Interface
 streamlit==1.50.0
+duckduckgo_search
