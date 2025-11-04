@@ -8,14 +8,14 @@ This project implements a **multi-agent architecture** where specialized AI agen
 
 ```
 ┌─────────────────────────────────────────────────────────────┐
-│                     Streamlit Web App                        │
-│                        (app.py)                              │
+│                     Streamlit Web App                       │
+│                        (app.py)                             │
 └────────────────────┬────────────────────────────────────────┘
                      │
                      ▼
 ┌─────────────────────────────────────────────────────────────┐
-│                  Agent Handler                               │
-│              (agent_handler.py)                              │
+│                  Agent Handler                              │
+│              (agent_handler.py)                             │
 │  • Orchestrates agent workflows                             │
 │  • Manages state and context                                │
 │  • Coordinates multi-agent collaboration                    │
@@ -42,16 +42,16 @@ This project implements a **multi-agent architecture** where specialized AI agen
                      │
         ┌────────────┼────────────┐
         ▼            ▼            ▼
-┌──────────────┐ ┌──────────┐ ┌──────────────┐
-│   Config     │ │ Prompts  │ │  RAG Helper  │
-│   Manager    │ │  YAML    │ │              │
+┌──────────────┐ ┌──────────┐ ┌───────────────┐
+│   Config     │ │ Prompts  │ │  RAG Helper   │
+│   Manager    │ │  YAML    │ │               │
 │ (config.py)  │ │          │ │(rag_helper.py)│
-└──────────────┘ └──────────┘ └──────────────┘
+└──────────────┘ └──────────┘ └───────────────┘
                                       │
                                       ▼
                               ┌──────────────┐
-                              │  ChromaDB    │
-                              │Vector Store  │
+                              │   ChromaDB   │
+                              │ Vector Store │
                               └──────────────┘
 ```
 
